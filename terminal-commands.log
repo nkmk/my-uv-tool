@@ -1,0 +1,52 @@
+$ uv --version
+uv 0.7.7 (Homebrew 2025-05-22)
+
+$ uv init --package my-uv-tool
+Initialized project `my-uv-tool` at `/Users/xxxxx/Documents/my-uv-tool`
+
+$ tree my-uv-tool
+my-uv-tool
+├── pyproject.toml
+├── README.md
+└── src
+    └── my_uv_tool
+        └── __init__.py
+
+3 directories, 3 files
+
+$ cd my-uv-tool
+
+$ uv run my-uv-tool
+Hello from my-uv-tool!
+
+$ uv add numpy
+
+# Write code and update pyproject.toml
+
+$ uv run my-uv-tool
+Hello from cli.py!
+NumPy version: 2.2.6
+
+$ uv run my-np-version
+2.2.6
+
+$ uv tool install -e .
+Installed 2 executables: my-np-version, my-uv-tool
+
+$ my-uv-tool
+Hello from cli.py!
+NumPy version: 2.2.6
+
+$ my-np-version
+2.2.6
+
+$ uv tool list
+my-uv-tool v0.1.0
+- my-np-version
+- my-uv-tool
+
+$ uv tool uninstall my-uv-tool
+Uninstalled 2 executables: my-np-version, my-uv-tool
+
+$ uv tool dir
+/Users/xxxxx/.local/share/uv/tools
